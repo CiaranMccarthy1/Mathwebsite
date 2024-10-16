@@ -1,2 +1,2 @@
-# Mathwebsite
+# Math website
  Essential maths
