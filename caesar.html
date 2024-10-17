@@ -43,6 +43,40 @@ nav a:hover
     font-weight: normal; /* Normal weight for active link */
 }
 
+h1
+{
+    background-color: darkgray;
+    height: 5vh;
+    
+}
+
+.centre
+{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    padding: 20px;
+    background-color: lightgray;
+    text-align: center;
+    height: 200px;
+    border-radius: 5px;
+}
+.output
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    height: 75px;
+}
+
+.Input
+{
+    padding: 20px;
+}
+
 </style>
 
 <head>
@@ -62,10 +96,83 @@ nav a:hover
 
 </head>
 
+<body>
+
 <main>
 
+    <!--User submition-->
+<form id="userinput" onsubmit="event.preventDefault();" class="centre">
 
+    <!--number 1-->
+    <div class = "Input">
+        <label for="a">Enter String: </label>
+        <input type="text" id="a" name="a" size="10" /><br>
+    </div>
+
+    <!--Number 2-->
+    <div class = "Input">
+        <label for="b">Enter shift: </label>
+        <input type="number" id="b" name="b" size="10" /><br>
+    </div>
+
+    <!--Submit answers-->
+    <button type="button" onclick="output()">Encode</button><br>
+</form>
+
+
+<h2 id="Encode" class="output">Encode is: </h2>
 
 
 </main>
+</body>
+
+<script>
+   
+   function output()
+{
+    let str = document.getElementById("a").value;
+    let shift = parseInt(document.getElementById("b").value);
+
+    function caesarCipher(str, shift) 
+    {
+        // Convert input to lowercase
+        str = str.toLowerCase();
+
+        // Adjust the shift value to be within 0-25
+        shift = shift % 26;
+
+        let result = '';
+
+        for (let i = 0; i < str.length; i++) 
+        {
+            let char = str[i];
+
+            // shifts lowerscase
+            if (char.match(/[a-z]/)) 
+            {
+             
+                let charCode = str.charCodeAt(i);
+
+                
+                if (charCode >= 97 && charCode <= 122)
+                {
+                    char = String.fromCharCode(((charCode - 97 + shift) % 26) + 97);
+                }
+            }
+
+            // Add the shifted character to the result
+            result += char;
+        }
+        return result;
+    }
+
+    // updates results
+    let encodedString = caesarCipher(str, shift);
+    document.getElementById("Encode").innerHTML = "Encoded is: " + encodedString;
+}
+
+
+
+
+</script>
 </html>
