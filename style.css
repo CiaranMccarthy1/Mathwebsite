@@ -1,0 +1,93 @@
+.inputForm
+{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    padding: 20px;
+    background-color: lightgray;
+    text-align: center;
+    height: 200px;
+    border-radius: 5px;
+}
+.output
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    height: 75px;
+}
+
+.Input
+{
+    padding: 20px;
+}
+
+button 
+{
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+button:hover 
+{
+    background-color: #0056b3;
+}
+
+body {
+    font-family: Arial, sans-serif; /* Specify font family */
+    margin: 0; 
+    padding: 0; 
+    background-color: #f4f4f4; /* Set background color */
+}
+
+header 
+{
+    background-color: #007BFF;
+    color: black; 
+    padding: 20px; 
+    text-align: center; 
+}
+
+nav 
+{
+    margin-top: 10px; 
+}
+
+nav a
+{
+    color: black; 
+    text-decoration: none; 
+    margin: 0 15px; 
+    font-weight: bold; 
+}
+
+nav a:hover 
+{
+    text-decoration: underline; 
+}
+
+.active 
+{
+    text-decoration: underline; 
+    font-weight: normal; 
+}
+
+.pageTitle {
+    text-align: center;
+    color: #333;
+}
+
+.pageTitleContainer {
+    background-color: #007BFF; 
+    padding: 10px 0; 
+    text-align: center; 
+    width: 100%; 
+
+}
