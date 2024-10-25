@@ -1,28 +1,92 @@
-
 <!DOCTYPE html>
-<html lang="en" translate="no">
-
+<html lang="en">
 <head>
-
-    <div id="header"></div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vigenère Cipher</title>
     <link rel="stylesheet" href="styles.css">
-
 </head>
+<body>
+
+<header id="header"></header>
 
 <main>
+    <form id="userinput" onsubmit="event.preventDefault();" class="inputForm">
+        <div class="Input">
+            <label for="a">Enter String:</label>
+            <input type="text" id="a" name="a" required />
+        </div>
+        <div class="Input">
+            <label for="b">Enter Keyword:</label>
+            <input type="text" id="b" name="b" required />
+        </div>
+        <div class="button-container">
+            <button type="button" onclick="output()">Encode</button>
+            <button type="button" onclick="decode()">Decode</button>
+        </div>
+    </form>
 
-
-
-
+    <h2 id="Encode" class="output" style="display: none;">Encoded: </h2>
+    <h2 id="Decode" class="output" style="display: none;">Decoded: </h2>
 </main>
-<script>
-     // JavaScript to load the header
-     fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-          document.getElementById('header').innerHTML = data;
-        })
-        .catch(error => console.error('Error loading header:', error));
 
+<script>
+// Load the header
+fetch('header.html')
+    .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.text();
+    })
+    .then(data => {
+        document.getElementById('header').innerHTML = data;
+    })
+    .catch(error => console.error('Error loading header:', error));
+
+function vigenereCipher(str, keyword, mode) {
+    let result = '';
+    keyword = keyword.toLowerCase();
+    let keywordIndex = 0;
+    
+    for (let i = 0; i < str.length; i++) {
+        let char = str[i];
+
+        if (char.match(/[a-zA-Z]/)) {
+            let charCode = char.charCodeAt(0);
+            let shift = keyword[keywordIndex % keyword.length].charCodeAt(0) - 97; // Shift based on keyword
+
+            if (mode === 'encode') {
+                // For encoding
+                char = String.fromCharCode(((charCode - 65 + shift) % 26) + 65); // Uppercase letters
+            } else {
+                // For decoding
+                char = String.fromCharCode(((charCode - 65 - shift + 26) % 26) + 65);
+            }
+
+            keywordIndex++; // Move to next character in the keyword
+        }
+        result += char; // Add to result
+    }
+    return result;
+}
+
+function output() {
+    let str = document.getElementById("a").value;
+    let keyword = document.getElementById("b").value;
+    let encodedString = vigenereCipher(str, keyword, 'encode');
+    document.getElementById("Encode").innerHTML = "Encoded: " + encodedString;
+    document.getElementById("Encode").style.display = "block";
+    document.getElementById("Decode").style.display = "none";
+}
+
+function decode() {
+    let str = document.getElementById("a").value;
+    let keyword = document.getElementById("b").value;
+    let decodedString = vigenereCipher(str, keyword, 'decode');
+    document.getElementById("Decode").innerHTML = "Decoded: " + decodedString;
+    document.getElementById("Decode").style.display = "block";
+    document.getElementById("Encode").style.display = "none";
+}
 </script>
+
+</body>
 </html>
