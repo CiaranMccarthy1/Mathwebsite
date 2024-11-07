@@ -1,3 +1,6 @@
+# New branch
+This branch is to seperate code into seperate files and reduce redundant code
+
 # Math website
  Essential maths
 

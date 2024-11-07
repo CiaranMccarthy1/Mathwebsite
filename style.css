@@ -1,0 +1,87 @@
+.inputForm {
+    padding: 20px;                   /* Padding inside the form */
+    background-color: lightgray;      /* Background color for the form */
+    text-align: center;               /* Center the text */
+    border-radius: 5px;               /* Rounded corners */
+    width: 300px;                     /* Set the width of the form */
+    margin: 100px auto;               /* Center the form horizontally and vertically */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for better visibility */
+}
+
+.Input {
+    margin-bottom: 15px;              /* Add space between inputs */
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px;
+}
+button:hover {
+    background-color: #0056b3;
+}
+
+.output {
+    text-align: center;      /* Center the text */
+    margin-top: 20px;        /* Add space above the output */
+    font-size: 22px;         /* Make the text larger */
+    color: black;             /* Set the text color */
+    width: 100%;             /* Ensure the text spans the full width */
+    display: block;          /* Ensure the h1 takes up the full width */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+header 
+{
+    background-color: #007BFF;
+    color: black; 
+    padding: 20px; 
+    text-align: center; 
+}
+
+nav 
+{
+    text-align: center;
+    margin-top: 10px; 
+}
+
+nav a
+{
+    color: black; 
+    text-decoration: none; 
+    margin: 0 15px; 
+    font-weight: bold; 
+}
+
+nav a:hover 
+{
+    text-decoration: underline; 
+}
+
+.active 
+{
+    text-decoration: underline; 
+    font-weight: normal; 
+}
+
+.pageTitle {
+    text-align: center;
+    color: #333;
+}
+
+.pageTitleContainer {
+    background-color: #007BFF; 
+    padding: 10px 0; 
+    text-align: center; 
+    width: 100%; 
+
+}
